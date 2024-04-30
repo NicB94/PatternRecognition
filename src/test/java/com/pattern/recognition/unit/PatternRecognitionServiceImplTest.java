@@ -52,7 +52,7 @@ public class PatternRecognitionServiceImplTest {
     }
 
     @Test
-    @DisplayName("givenValidCoordinatesValue_thenInsertPointIntoThePlane")
+    @DisplayName("whenValidCoordinatesAreProvided_thenInsertPointIntoThePlane")
     void whenValidCoordinatesAreProvided_thenInsertPointIntoThePlane(){
 
         patternRecognitionService.addPoint(x);
@@ -61,7 +61,7 @@ public class PatternRecognitionServiceImplTest {
     }
 
     @Test
-    @DisplayName("givenInvalidCoordinatesValue_thenThrowsInvalidParametersException")
+    @DisplayName("whenInvalidCoordinatesAreProvided_thenThrowsInvalidParametersException")
     void whenInvalidCoordinatesAreProvided_thenThrowsInvalidParametersException(){
 
         Point invalidPoint = new Point(null, -1);
@@ -86,8 +86,8 @@ public class PatternRecognitionServiceImplTest {
     }
 
     @Test
-    @DisplayName("givenAValidNValue_thenReturnPointsRelatedToLinesWithLengthGreaterOrEqualsThanN")
-    void whenNIsValidAndTherAreThreeCollinearPoints_thenReturnPointsRelatedToLinesWithLengthGreaterOrEqualsThanN(){
+    @DisplayName("whenNIsValidAndThereAreThreeCollinearPoints_thenReturnPointsRelatedToLinesWithLengthGreaterOrEqualsThanN")
+    void whenNIsValidAndThereAreThreeCollinearPoints_thenReturnPointsRelatedToLinesWithLengthGreaterOrEqualsThanN(){
         List<Point> plane = new ArrayList<>();
         plane.add(x);
         plane.add(y);
@@ -101,8 +101,8 @@ public class PatternRecognitionServiceImplTest {
     }
 
     @Test
-    @DisplayName("givenAnInvalidNValue_thenThrowsInvalidParametersException")
-    void givenAnInvalidNValue_thenThrowsInvalidParametersException(){
+    @DisplayName("whenAnInvalidNValueIsProvided_thenThrowsInvalidParametersException")
+    void whenAnInvalidNValueIsProvided_thenThrowsInvalidParametersException(){
         Integer n = -1;
         Assertions.assertThrows(InvalidParametersException.class, () -> patternRecognitionService.getLinesWithLengthEqualsOrGreaterThanN(n));
     }
